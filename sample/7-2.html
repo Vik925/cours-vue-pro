@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+
+  <body>
+    <div id="app">
+        <header>
+            <h1  v-text="sitename"></h1>
+        </header>
+      
+      </div>
+    </div>
+    <script>
+      const APP_LOG_LIFECYCLE_EVENTS = true;
+
+      let app = new Vue({
+        el: '#app',
+        data: {
+          sitename: 'Vue.js ЖЦ',
+          },
+          beforCreate: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("beforCreate");
+              }
+          },
+          created: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("created");
+              }
+          },
+          beforMount: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("beforMount");
+              }
+          },
+          mounted: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("mounted");
+              }
+          },
+          beforUpdate: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("beforUpdata");
+              }
+          },
+          updated: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("updated");
+              }
+          },
+          beforDestroy: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("beforDestroy");
+              }
+          },
+          destroyed: function (){
+              if (APP_LOG_LIFECYCLE_EVENTS){
+                console.log("destroyed");
+              }
+          },
+         
+      });
+    </script>
+  </body>
+</html>
