@@ -5,23 +5,16 @@
         <div class="container">
           <!-- First modal -->
           <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Show first modal</button>
-          <modals title="First modal" v-show="modalFirst" @close="false">
+          <modal title="First modal" v-show="modalFirst" @close="false">
             <div slot="body">
               <p>Text Text Text Text Text</p>
               <button class="btn btnPrimary" @click="modalFirst = !modalFirst">well</button>
             </div>
-          </modals>
+          </modal>
 
           <!-- Second modal -->
-          <button
-            class="btn btnPrimary"
-            @click="modalSecond.show = !modalSecond.show"
-          >Show modal with form</button>
-          <modals
-            title="Modal whis form"
-            v-show="modalSecond.show"
-            @close="modalSecond.show = false"
-          >
+          <button class="btn btnPrimary" @click="modalSecond.show = !modalSecond.show">Show modal with form</button>
+          <modal title="Modal whis form" v-show="modalSecond.show" @close="modalSecond.show = false">
             <div slot="body">
               <form @submit.prevent="submitSecondForm">
                 <label>Name:</label>
@@ -31,12 +24,11 @@
                 <button class="btn btnPrimary">submit</button>
               </form>
             </div>
-          </modals>
+          </modal>
 
-          <button
-            class="btn btnPrimary"
-            @click="modalValidate = !modalValidate"
-          >Show modal with form + validate</button>
+          <button class="btn btnPrimary" @click="modalValidate = !modalValidate">
+            Show modal with form + validate
+          </button>
           <modalValidate v-show="modalValidate" @close="modalValidate = false" />
         </div>
       </section>
@@ -45,32 +37,30 @@
 </template>
 
 <script>
-import modal from '@/components/UI/Modal.vue';
-import modalValidate from '@/components/ModalValidate.vue';
+  import modal from '@/components/UI/Modal.vue';
+  import modalValidate from '@/components/ModalValidate.vue';
 
-export default {
-  components: { modals, modalValidate },
-  data() {
-    return {
-      modalFirst: false,
-      modalSecond: {
-        show: false,
-        name: '',
-        email: '',
-      },
-      modalValidate: false,
-    };
-  },
-  methods: {
-    submitSecondForm() {
-      console.log({
-        name: this.modalSecond.name,
-        email: this.modalSecond.email,
-      });
-      (this.modalSecond.name = ''), (this.modalSecond.email = ''), (this.modalSecond.show = false);
+  export default {
+    components: { modal, modalValidate },
+    data() {
+      return {
+        modalFirst: false,
+        modalSecond: {
+          show: false,
+          name: '',
+          email: '',
+        },
+        modalValidate: false,
+      };
     },
-  },
-};
+    methods: {
+      submitSecondForm() {
+        console.log({
+          name: this.modalSecond.name,
+          email: this.modalSecond.email,
+        });
+        (this.modalSecond.name = ''), (this.modalSecond.email = ''), (this.modalSecond.show = false);
+      },
+    },
+  };
 </script>
-
-

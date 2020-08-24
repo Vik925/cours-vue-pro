@@ -8,13 +8,16 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "save-dev": "0.0.1-security",
+    "vue": "^2.6.12",
+    "vuelidate": "^0.7.5",
+    "yarn": "^1.22.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.3",
-    "@vue/cli-service": "^4.5.3",
+    "@vue/cli-service": "^4.5.4",
     "node-sass": "^4.14.1",
     "sass-loader": "^9.0.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   }
 }
